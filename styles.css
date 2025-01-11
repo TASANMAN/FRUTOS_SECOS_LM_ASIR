@@ -5,6 +5,7 @@ body {
   background-color: #f4f4f4;
 }
 
+/* Estilo del encabezado */
 header {
   background-color: #4caf50;
   color: white;
@@ -16,13 +17,17 @@ h1 {
   margin: 0;
 }
 
+/* Contenedor de productos usando Grid */
 .productos {
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
   padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto; /* Centrar contenido en pantallas grandes */
 }
 
+/* Tarjetas */
 .tarjeta {
   background-color: white;
   border-radius: 10px;
@@ -30,7 +35,6 @@ h1 {
   overflow: hidden;
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  width: 200px;
 }
 
 .tarjeta img {
@@ -54,4 +58,23 @@ h1 {
 .tarjeta:hover {
   transform: scale(1.05);
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Media Queries para ajustar detalles en pantallas pequeñas */
+@media (max-width: 768px) {
+  .productos {
+    padding: 10px;
+    gap: 15px;
+  }
+
+  .tarjeta {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .productos {
+    grid-template-columns: 1fr; /* Una columna en pantallas muy pequeñas */
+    gap: 10px;
+  }
 }
